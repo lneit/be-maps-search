@@ -14,7 +14,6 @@ describe('Tomtom Places E2E Tests', () => {
         })
 
         it('can fetch from the autocomplete api', async () => {
-            console.log(process.env.TOMTOM_API_KEY);
             const res = await getAutoCompleteDetails('Charlotte Street')
             const firstRes = res[0];
             expect(firstRes).toHaveProperty('placeId')
