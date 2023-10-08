@@ -18,12 +18,23 @@ API Key: [TOMTOM_API_KEY]
 
 # Install:
 
-1. yarn install
+1. npm install
 
 # Test:
 
-1. yarn install
-2. yarn test
+1. npm install
+
+## Unit Tests
+
+2. npm test
+
+## Integration Tests
+
+2. npm run e2e
+
+## Test Coverage
+
+2. npm run coverage
 
 # Requirements:
 
@@ -33,3 +44,15 @@ API Key: [TOMTOM_API_KEY]
 4. The result elements should contain important information about the place (country, municipality, etc)
 5. The returned result should be typed and easily consumable via users of the library
 6. No front-end requirements are necessary, this is purely a backend NodeJS library
+
+# TODO
+
+1. Format and lint the code base (done)
+2. Add Husky pre-commit hooks (done)
+3. Add unit tests
+4. Add unit test coverage (done)
+5. Add OpenAPI spec
+6. Env var for a country of concern
+7. Pagination support in the API req/resp
+8. Review the types
+9. Add docker file for the local deployment
