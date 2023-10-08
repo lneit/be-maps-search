@@ -49,7 +49,7 @@ API Key: [TOMTOM_API_KEY]
 
 1. Format and lint the code base (done)
 2. Add Husky pre-commit hooks (done)
-3. Add unit tests
+3. Add unit tests (done)
 4. Add unit test coverage (done)
 5. Add OpenAPI spec
 6. Env var for a country of concern
