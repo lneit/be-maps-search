@@ -51,8 +51,6 @@ API Key: [TOMTOM_API_KEY]
 2. Add Husky pre-commit hooks (done)
 3. Add unit tests (done)
 4. Add unit test coverage (done)
-5. Add OpenAPI spec
-6. Env var for a country of concern
-7. Pagination support in the API req/resp
-8. Review the types
-9. Add docker file for the local deployment
+5. Env var for a country of concern
+6. Pagination support in the API req/resp
+7. Review the types
