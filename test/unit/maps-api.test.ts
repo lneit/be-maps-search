@@ -77,7 +77,7 @@ describe('maps-api unit tests', () => {
       );
 
       expect(axios.get).toHaveBeenCalledWith(
-        `https://some-search-url/Charlotte Street.json`,
+        `https://some-search-url/Charlotte%20Street.json`,
         {
           params: {
             key: 'FAKE_TOMTOM_API_KEY',
@@ -128,7 +128,7 @@ describe('maps-api unit tests', () => {
       );
 
       expect(axios.get).toHaveBeenCalledWith(
-        `https://some-search-url/Charlotte Street.json`,
+        `https://some-search-url/Charlotte%20Street.json`,
         {
           params: {
             key: 'FAKE_TOMTOM_API_KEY',
@@ -158,7 +158,7 @@ describe('maps-api unit tests', () => {
       await getPlaceAutocomplete('FAKE_TOMTOM_API_KEY', 'Charlotte Street');
 
       expect(axios.get).toHaveBeenCalledWith(
-        `https://some-search-url/Charlotte Street.json`,
+        `https://some-search-url/Charlotte%20Street.json`,
         {
           params: {
             key: 'FAKE_TOMTOM_API_KEY',

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { GetPlaceResponse, TomtomResponseResult } from './interfaces';
+import { fixedEncodeURIComponent } from './utils';
 
 /**
  * A wrapper function for the integration with TomTom default search service - Fuzzy Search.
@@ -22,7 +23,10 @@ export async function getPlaceAutocomplete(
   limit?: number,
   offset?: number
 ): Promise<GetPlaceResponse> | never {
-  const url = `${process.env.TOMTOM_API_URL_BASE}/${address}.json`;
+  // Normalise the address string
+  const escapedAddress = fixedEncodeURIComponent(address);
+
+  const url = `${process.env.TOMTOM_API_URL_BASE}/${escapedAddress}.json`;
   try {
     const autocomplete = await axios.get(url, {
       params: {

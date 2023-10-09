@@ -4,7 +4,7 @@ import * as MapAPI from '../../src/maps-api';
 
 const originalEnv = process.env;
 
-describe('maps-api unit tests', () => {
+describe('index unit tests', () => {
   beforeAll(() => {
     jest.resetModules();
     process.env = {
@@ -17,8 +17,8 @@ describe('maps-api unit tests', () => {
   afterAll(() => {
     process.env = originalEnv;
   });
-  describe('getPlaceAutocomplete', () => {
-    it('maps results as expected', async () => {
+  describe('getAutoCompleteDetails', () => {
+    it('calls getPlaceAutocomplete with expected parameters', async () => {
       const getPlaceAutocompleteMock = jest
         .spyOn(MapAPI, 'getPlaceAutocomplete')
         .mockResolvedValueOnce({
@@ -48,7 +48,14 @@ describe('maps-api unit tests', () => {
         undefined
       );
     });
-    it('handles failed request', async () => {
+    it('throws when called with a bad limit value', async () => {
+      await expect(
+        getAutoCompleteDetails('Charlotte Street', 1000)
+      ).rejects.toThrow(
+        'Invalid limit value. Minimum allowed value is 0. Maximum allowed value is 100'
+      );
+    });
+    it('throws on failed getPlaceAutocomplete call', async () => {
       const getPlaceAutocompleteMock = jest
         .spyOn(MapAPI, 'getPlaceAutocomplete')
         .mockImplementationOnce(() => {
