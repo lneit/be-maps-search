@@ -62,4 +62,5 @@ API Key: [TOMTOM_API_KEY]
 5. Env var for a country of concern (done)
 6. Pagination support in the API req/resp (done)
 7. Review the types
-8. Add parameter validation
+8. Add parameter validation (done)
+9. Test publishing to npm (played with :)

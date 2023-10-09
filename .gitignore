@@ -4,9 +4,13 @@
 # production
 /build
 
+# compiled javascript
+dist
+
 # misc
 .DS_Store
 *.pem
+*.tgz
 
 # debug
 yarn-debug.log*

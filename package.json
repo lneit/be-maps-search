@@ -2,14 +2,16 @@
   "name": "@montu/maps-backend-challenge",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "lint": "eslint . --ext .ts",
     "prettier-format": "prettier --config .prettierrc '*/**/*.ts' --write",
     "test": "jest --testPathPattern='./test/unit/*'",
     "e2e": "jest --testPathIgnorePatterns='./test/unit/*'",
     "coverage": "npx jest --testPathPattern='./test/unit/*' --coverage",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepublish": "tsc"
   },
   "author": "",
   "license": "ISC",
