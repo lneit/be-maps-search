@@ -55,6 +55,11 @@ describe('index unit tests', () => {
         'Invalid limit value. Minimum allowed value is 0. Maximum allowed value is 100'
       );
     });
+    it('throws when called with a bad address value', async () => {
+      await expect(getAutoCompleteDetails('', 1000)).rejects.toThrow(
+        'Invalid address value. Allowed address length should range between 1 and 100'
+      );
+    });
     it('throws on failed getPlaceAutocomplete call', async () => {
       const getPlaceAutocompleteMock = jest
         .spyOn(MapAPI, 'getPlaceAutocomplete')

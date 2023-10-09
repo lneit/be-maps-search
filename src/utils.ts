@@ -10,3 +10,10 @@ export const isValidLimit = (limit: number | undefined) => {
   }
   return false;
 };
+
+export const isValidAddress = (address: string) => {
+  if (address && address.length <= 100) {
+    return true;
+  }
+  return false;
+};

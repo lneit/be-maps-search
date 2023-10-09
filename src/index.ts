@@ -1,6 +1,6 @@
 import { getPlaceAutocomplete } from './maps-api';
 import { GetPlaceResponse } from './interfaces';
-import { isValidLimit } from './utils';
+import { isValidAddress, isValidLimit } from './utils';
 
 /**
  * An interface function for the integration with TomTom default search service - Fuzzy Search.
@@ -10,7 +10,7 @@ import { isValidLimit } from './utils';
  * The search country set is limited by default to Australia (AU). The deafault can be overriden using 
  * SEARCH_COUNTRY_SET environment variable. 
  * 
- * @param address: A search address segment, e.g street name
+ * @param address: A search address segment, e.g street name. Allowed length range is between 1 and 100 characters.
  * @param limit: Optional. Maximum number of responses that will be returned. Default value: 100. 
  * Maximum value: 100.
  * @param offset: Optional. Starting offset of the returned results within the full result set.
@@ -23,6 +23,13 @@ export async function getAutoCompleteDetails(
   offset?: number
 ): Promise<GetPlaceResponse> | never {
   const apiKey = process.env.TOMTOM_API_KEY;
+
+  if (!isValidAddress(address)) {
+    const msg =
+      'Invalid address value. Allowed address length should range between 1 and 100';
+    console.warn(msg);
+    throw new Error(msg);
+  }
 
   if (!isValidLimit(limit)) {
     const msg =
