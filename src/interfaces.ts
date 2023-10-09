@@ -71,3 +71,17 @@ export type GetPlaceResult = { placeId: string } & Subset<
     municipality: string;
   }
 >;
+
+export type GetPlaceResponeSummary = Subset<
+  TomtomResponseSummary,
+  {
+    numResults: number;
+    offset: number;
+    totalResults: number;
+  }
+>;
+
+export interface GetPlaceResponse {
+  summary: GetPlaceResponeSummary;
+  results: Array<GetPlaceResult>;
+}

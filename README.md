@@ -30,7 +30,15 @@ API Key: [TOMTOM_API_KEY]
 
 ## Integration Tests
 
-2. npm run e2e
+2. Copy .env.example to .env
+
+```bash
+   cp .env.example .env
+```
+
+3. Set your tomtom API key value in .env
+
+4. npm run e2e
 
 ## Test Coverage
 
@@ -51,6 +59,7 @@ API Key: [TOMTOM_API_KEY]
 2. Add Husky pre-commit hooks (done)
 3. Add unit tests (done)
 4. Add unit test coverage (done)
-5. Env var for a country of concern
-6. Pagination support in the API req/resp
+5. Env var for a country of concern (done)
+6. Pagination support in the API req/resp (done)
 7. Review the types
+8. Add parameter validation

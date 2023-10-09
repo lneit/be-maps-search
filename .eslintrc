@@ -9,7 +9,7 @@
     "prettier"
   ],
   "rules": {
-    "no-console": 1, // Means warning
+    "no-console": ["error", { "allow": ["warn", "error"] }], // Means warning
     "prettier/prettier": 2 // Means error
   }
 }

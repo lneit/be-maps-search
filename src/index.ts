@@ -1,13 +1,34 @@
 import { getPlaceAutocomplete } from './maps-api';
-import { GetPlaceResult } from './interfaces';
+import { GetPlaceResponse } from './interfaces';
 
+/**
+ * An interface function for the integration with TomTom default search service - Fuzzy Search.
+ * Please see https://developer.tomtom.com/search-api/documentation/search-service/search-service and
+ * https://developer.tomtom.com/search-api/documentation/search-service/fuzzy-search.
+ * 
+ * The search country set is limited by default to Australia (AU). The deafault can be overriden using 
+ * SEARCH_COUNTRY_SET environment variable. 
+ * 
+ * @param address: A search address segment, e.g street name
+ * @param limit: Maximum number of responses that will be returned. Default value: 100. Maximum value: 100.
+ * @param offset: Starting offset of the returned results within the full result set.
+Default value: 0
+ * @returns Promise<GetPlaceResponse> as specified in the interfaces.ts or throws an error.
+ */
 export async function getAutoCompleteDetails(
-  address: string
-): Promise<GetPlaceResult[]> {
+  address: string,
+  limit?: number,
+  offset?: number
+): Promise<GetPlaceResponse> | never {
   const apiKey = process.env.TOMTOM_API_KEY;
 
   // get mapped autocomplete results
-  const res = await getPlaceAutocomplete(apiKey as string, address);
+  const res = await getPlaceAutocomplete(
+    apiKey as string,
+    address,
+    limit,
+    offset
+  );
 
   return res;
 }
